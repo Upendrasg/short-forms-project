@@ -1,0 +1,271 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Forms Extended {% endblock title %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<form method="post" action="/estimate/">
+    {% csrf_token %}
+    <div class="row">
+
+        <div class="col-md-10">
+          <div class="card ">
+            <div class="card-header card-header-rose card-header-text">
+              <div class="card-text">
+                <h4 class="card-title">Property</h4>
+              </div>
+            </div>
+            <div class="card-body ">
+                <div class="form-group">
+                  <label for="verified" class="bmd-label-floating">Verified</label>
+                  <input type="text" class="form-control" name="verified" maxlength="50" required="" id="verified">
+                </div>
+                <div class="form-group">
+                  <label for="roof_material" class="bmd-label-floating">Roof Material</label>
+                  <input type="text" class="form-control" name="roof_material" maxlength="50" required="" id="roof_material">
+                </div><div class="form-group">
+                  <label for="house_age" class="bmd-label-floating">House Age</label>
+                  <input type="text" class="form-control" name="house_age" maxlength="50" required="" id="house_age">
+                </div><div class="form-group">
+                  <label for="internal_switchboard" class="bmd-label-floating">Internal Switchboard</label>
+                  <input type="text" class="form-control" name="internal_switchboard" maxlength="50" required="" id="internal_switchboard">
+                </div>
+                <div class="form-group">
+                  <label for="switchboard_photo_afar" class="bmd-label-floating">Switchboard Photo Afar</label>
+                  <input type="text" class="form-control" name="switchboard_photo_afar" maxlength="50" required="" id="switchboard_photo_afar">
+                </div>
+                <div class="form-group">
+                  <label for="switchboard_photo_enclosure" class="bmd-label-floating">Switchboard Photo Enclosure</label>
+                  <input type="text" class="form-control" name="switchboard_photo_enclosure" maxlength="50" required="" id="switchboard_photo_enclosure">
+                </div>
+                <div class="form-group">
+                  <label for="switchboard_photo_upclose" class="bmd-label-floating">Switchboard Photo Upclose</label>
+                  <input type="text" class="form-control" name="switchboard_photo_upclose" maxlength="50" required="" id="switchboard_photo_upclose">
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="card ">
+            <div class="card-header card-header-rose card-header-text">
+              <div class="card-text">
+                <h4 class="card-title">Rebate</h4>
+              </div>
+            </div>
+            <div class="card-body ">
+                <div class="form-group">
+                  <label for="stcs" class="bmd-label-floating">STCS</label>
+                  <input type="text" class="form-control" name="stcs" maxlength="50" required="" id="stcs">
+                </div>
+                <div class="form-group">
+                  <label for="sv_loan" class="bmd-label-floating">SV Loan</label>
+                  <input type="text" class="form-control" name="sv_loan" maxlength="50" required="" id="sv_loan">
+                </div>
+                <div class="form-group">
+                  <label for="loan_amount" class="bmd-label-floating">Loan Amount</label>
+                  <input type="text" class="form-control" name="loan_amount" maxlength="50" required="" id="loan_amount">
+                </div>
+                <div class="form-group">
+                    <label for="loan_requested" class="bmd-label-floating">Loan Requested</label>
+                    <input type="text" class="form-control" name="loan_requested" maxlength="50" required="" id="loan_requested">
+                </div>
+                <div class="form-group">
+                    <label for="loan_approved" class="bmd-label-floating">Loan Approved</label>
+                    <input type="text" class="form-control" name="loan_approved" maxlength="50" required="" id="loan_approved">
+                </div>
+                <div class="form-group">
+                    <label for="sv_solar_homes" class="bmd-label-floating">SV Solar Homes</label>
+                    <input type="text" class="form-control" name="sv_solar_homes" maxlength="50" required="" id="sv_solar_homes">
+                </div>
+                <div class="form-group">
+                    <label for="solar_homes_amount" class="bmd-label-floating">Solar Homes Amount</label>
+                    <input type="text" class="form-control" name="solar_homes_amount" maxlength="50" required="" id="solar_homes_amount">
+                </div>
+                <div class="form-group">
+                    <label for="solar_homes_requested" class="bmd-label-floating">Solar Homes Requested</label>
+                    <input type="text" class="form-control" name="solar_homes_requested" maxlength="50" required="" id="solar_homes_requested">
+                </div>
+                <div class="form-group">
+                    <label for="solar_homes_approved" class="bmd-label-floating">Solar Homes Approved</label>
+                    <input type="text" class="form-control" name="solar_homes_approved" maxlength="50" required="" id="solar_homes_approved">
+                </div>
+                <div class="form-group">
+                    <label for="sv_battery" class="bmd-label-floating">SV Battery</label>
+                    <input type="text" class="form-control" name="sv_battery" maxlength="50" required="" id="sv_battery">
+                </div>
+                <div class="form-group">
+                    <label for="battery_amount" class="bmd-label-floating">Battery Amount</label>
+                    <input type="text" class="form-control" name="battery_amount" maxlength="50" required="" id="battery_amount">
+                </div>
+                <div class="form-group">
+                    <label for="battery_requested" class="bmd-label-floating">Battery Requested</label>
+                    <input type="text" class="form-control" name="battery_requested" maxlength="50" required="" id="battery_requested">
+                </div>
+                <div class="form-group">
+                    <label for="battery_approved" class="bmd-label-floating">Battery Approved</label>
+                    <input type="text" class="form-control" name="battery_approved" maxlength="50" required="" id="battery_approved">
+                </div>
+                <div class="form-group">
+                    <label for="rebate_total" class="bmd-label-floating">Rebate Total</label>
+                    <input type="text" class="form-control" name="rebate_total" maxlength="50" required="" id="rebate_total">
+                </div>               
+              
+                  </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="card ">
+            <div class="card-header card-header-rose card-header-text">
+              <div class="card-text">
+                <h4 class="card-title">Eligibility</h4>
+              </div>
+            </div>
+            <div class="card-body ">
+                <div class="form-group">
+                  <label for="verified" class="bmd-label-floating">Verified</label>
+                  <input type="text" class="form-control" name="verified1" maxlength="50" required="" id="verified1">
+                </div>
+                <div class="form-group">
+                  <label for="has_solar" class="bmd-label-floating">Has Solar</label>
+                  <input type="text" class="form-control" name="has_solar" maxlength="50" required="" id="has_solar">
+                </div>
+                <div class="form-group">
+                  <label for="year_installed" class="bmd-label-floating">Year Installed</label>
+                  <input type="text" class="form-control" name="year_installed" maxlength="50" required="" id="year_installed">
+                </div>
+                <div class="form-group">
+                    <label for="previously_approved" class="bmd-label-floating">Previously Approved</label>
+                    <input type="text" class="form-control" name="previously_approved" maxlength="50" required="" id="previously_approved">
+                </div>
+                <div class="form-group">
+                    <label for="combined_income_value" class="bmd-label-floating">Combined Income Value</label>
+                    <input type="text" class="form-control" name="combined_income_value" maxlength="50" required="" id="combined_income_value">
+                </div>
+                <div class="form-group">
+                    <label for="combined_income_approved" class="bmd-label-floating">Combined Income Approved</label>
+                    <input type="text" class="form-control" name="combined_income_approved" maxlength="50" required="" id="combined_income_approved">
+                </div>
+                <div class="form-group">
+                    <label for="property_value" class="bmd-label-floating">Property Value</label>
+                    <input type="text" class="form-control" name="property_value" maxlength="50" required="" id="property_value">
+                </div>
+                <div class="form-group">
+                    <label for="property_value_approved" class="bmd-label-floating">Property Value Approved</label>
+                    <input type="text" class="form-control" name="property_value_approved" maxlength="50" required="" id="property_value_approved">
+                </div>
+                <div class="form-group">
+                    <label for="is_eligible" class="bmd-label-floating">Is Eligible</label>
+                    <input type="text" class="form-control" name="is_eligible" maxlength="50" required="" id="is_eligible">
+                </div>
+                
+                  </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="card ">
+            <div class="card-header card-header-rose card-header-text">
+              <div class="card-text">
+                <h4 class="card-title">Consumption</h4>
+              </div>
+            </div>
+            <div class="card-body ">
+                <div class="form-group">
+                  <label for="verified" class="bmd-label-floating">Verified</label>
+                  <input type="text" class="form-control" name="verified" maxlength="50" required="" id="verified">
+                </div>
+                <div class="form-group">
+                  <label for="retailer" class="bmd-label-floating">Retailer</label>
+                  <input type="text" class="form-control" name="retailer" maxlength="50" required="" id="retailer">
+                </div>
+                <div class="form-group">
+                  <label for="interval_data" class="bmd-label-floating">Interval Data</label>
+                  <input type="text" class="form-control" name="interval_data" maxlength="50" required="" id="interval_data">
+                </div>
+                <div class="form-group">
+                  <label for="manual_input" class="bmd-label-floating">Manual Input</label>
+                  <input type="text" class="form-control" name="manual_input" maxlength="50" required="" id="manual_input">
+                </div>
+                <div class="form-group">
+                  <label for="electricity_bill" class="bmd-label-floating">Electricity Bill</label>
+                  <input type="text" class="form-control" name="electricity_bill" maxlength="50" required="" id="electricity_bill">
+                </div>
+                <div class="form-group">
+                  <label for="nphases" class="bmd-label-floating">Nphases</label>
+                  <input type="text" class="form-control" name="nphases" maxlength="50" required="" id="nphases">
+                </div>
+                <div class="form-group">
+                  <label for="daily_usage" class="bmd-label-floating">Daily Usage</label>
+                  <input type="text" class="form-control" name="daily_usage" maxlength="50" required="" id="daily_usage">
+                </div>
+                <div class="form-group">
+                  <label for="usage_estimated" class="bmd-label-floating">Usage Estimated</label>
+                  <input type="text" class="form-control" name="usage_estimated" maxlength="50" required="" id="usage_estimated">
+                </div>
+                <div class="form-group">
+                  <label for="nmi" class="bmd-label-floating">Nmi</label>
+                  <input type="text" class="form-control" name="nmi" maxlength="50" required="" id="nmi">
+                </div>
+                <div class="form-group">
+                  <label for="meter_a" class="bmd-label-floating">Meter A</label>
+                  <input type="text" class="form-control" name="meter_a" maxlength="50" required="" id="meter_a">
+                </div>
+                <div class="form-group">
+                  <label for="meter_b" class="bmd-label-floating">Meter B</label>
+                  <input type="text" class="form-control" name="meter_b" maxlength="50" required="" id="meter_b">
+                </div><div class="form-group">
+                  <label for="meter_c" class="bmd-label-floating">Meter C</label>
+                  <input type="text" class="form-control" name="meter_c" maxlength="50" required="" id="meter_c">
+                </div>
+                <div class="form-group">
+                  <label for="service_charge" class="bmd-label-floating">Service Charge</label>
+                  <input type="text" class="form-control" name="service_charge" maxlength="50" required="" id="service_charge">
+                </div>
+                <div class="form-group">
+                  <label for="off_peak_price" class="bmd-label-floating">Off Peak Price</label>
+                  <input type="text" class="form-control" name="off_peak_price" maxlength="50" required="" id="off_peak_price">
+                </div>
+                <div class="form-group">
+                  <label for="on_peak_price" class="bmd-label-floating">On Peak Price</label>
+                  <input type="text" class="form-control" name="on_peak_price" maxlength="50" required="" id="on_peak_price">
+                
+               
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="card ">
+            <div class="card-body ">
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-rose">Submit</button>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</form>
+
+
+{% endblock content %}
+
+{% block javascripts %}
+
+<script>
+  $(document).ready(function() {
+    // initialise Datetimepicker and Sliders
+    md.initFormExtendedDatetimepickers();
+    if ($('.slider').length != 0) {
+      md.initSliders();
+    }
+  });
+</script>
+
+{% endblock javascripts %}

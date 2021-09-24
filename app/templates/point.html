@@ -1,0 +1,559 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Forms Extended {% endblock title %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<form method="post" action="/estimate/">
+    {% csrf_token %}
+    <div class="row">
+
+        <div class="col-md-10">
+          <div class="card ">
+            <div class="card-header card-header-rose card-header-text">
+              <div class="card-text">
+                <h4 class="card-title">Point</h4>
+              </div>
+            </div>
+            <div class="card-body ">
+                <div class="form-group">
+                  <label for="point_string" class="bmd-label-floating">Point String</label>
+                  <input type="text" class="form-control" name="point_string" maxlength="50" required="" id="point_string">
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="card ">
+            <div class="card-header card-header-rose card-header-text">
+              <div class="card-text">
+                <h4 class="card-title">Location</h4>
+              </div>
+            </div>
+            <div class="card-body ">
+<!--                 <div class="form-group">
+                  <label for="point" class="bmd-label-floating">Point</label>
+                  <input type="text" class="form-control" name="point" maxlength="50" required="" id="id_point">
+                </div> -->
+                <div class="form-group">
+                  <label for="place_id" class="bmd-label-floating">Place ID</label>
+                  <input type="text" class="form-control" name="place_id" maxlength="50" required="" id="id_place_id">
+                </div>
+                <div class="form-group">
+                  <label for="full_address" class="bmd-label-floating">Full Address</label>
+                  <input type="text" class="form-control" name="full_address" maxlength="50" required="" id="id_full_address">
+                </div>
+                <div class="form-group">
+                    <label for="street_address" class="bmd-label-floating">Street Address</label>
+                    <input type="text" class="form-control" name="street_address" maxlength="50" required="" id="id_street_address">
+                </div>
+                <div class="form-group">
+                    <label for="street_number" class="bmd-label-floating">Street Number</label>
+                    <input type="text" required=""  class="form-control" name="street_number" maxlength="50" id="id_street_number">
+                </div>
+                <div class="form-group">
+                    <label for="street_name" class="bmd-label-floating">Street Name</label>
+                    <input type="text" required="" class="form-control" name="street_name" maxlength="50" id="id_street_name">
+                </div>
+                <div class="form-group">
+                    <label for="suburb" class="bmd-label-floating">Suburb</label>
+                    <input type="text" required="" class="form-control" name="suburb" maxlength="50" id="id_suburb">
+                </div>
+                <div class="form-group">
+                    <label for="state" class="bmd-label-floating">State</label>
+                    <input type="text" required="" class="form-control" name="state" maxlength="50" id="id_state">
+                </div>
+                <div class="form-group">
+                    <label for="postcode" class="bmd-label-floating">Postcode</label>
+                    <input type="text" required="" class="form-control" name="postcode" maxlength="50" id="id_postcode">
+                </div>
+                <div class="form-group">
+                    <label for="council" class="bmd-label-floating">Council</label>
+                    <input type="text" required="" class="form-control" name="council" maxlength="50" id="id_council">
+                </div>
+                <div class="form-group">
+                    <label for="lat" class="bmd-label-floating">Lat</label>
+                    <input type="text" required="" class="form-control" name="lat" maxlength="50" id="id_lat">
+                </div>
+                <div class="form-group">
+                    <label for="lon" class="bmd-label-floating">Lon</label>
+                    <input type="text" required="" class="form-control" name="lon" maxlength="50" id="id_lon">
+                </div>
+                <div class="form-group">
+                    <label for="link_code" class="bmd-label-floating">Link Code</label>
+                    <input type="text" class="form-control" name="link_code" maxlength="50" required="" id="id_link_code">
+                </div>
+                <div class="form-group">
+                    <label for="qr_filepath" class="bmd-label-floating">QR Filepath</label>
+                    <input type="text" class="form-control" name="qr_filepath" maxlength="50" required="" id="id_qr_filepath">
+                </div>
+                <div class="form-group">
+                    <label for="qr_path" class="bmd-label-floating">QR Path</label>
+                    <input type="text" class="form-control" name="qr_path" maxlength="50" required="" id="id_qr_path">
+                </div>
+
+                <div class="col-md-4 col-sm-4">
+                  <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                    <label for="qrcode" class="bmd-label-floating">QR Code</label>
+                    <div class="fileinput-new thumbnail">
+                      <img src="/static/assets/img/image_placeholder.jpg" alt="...">
+                    </div>
+                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                    <div>
+                      <span class="btn btn-rose btn-round btn-file">
+                        <span class="fileinput-new">Select image</span>
+                        <span class="fileinput-exists">Change</span>
+                        <input type="file" required="" name="..." />
+                      </span>
+                      <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="card ">
+            <div class="card-header card-header-rose card-header-text">
+              <div class="card-text">
+                <h4 class="card-title">Estimate</h4>
+              </div>
+            </div>
+            <div class="card-body ">
+                <!-- <div class="form-group">
+                  <label for="location" class="bmd-label-floating">Location</label>
+                  <input type="text" class="form-control" name="location" maxlength="50" id="id_location">
+                </div> -->
+                <div class="form-group">
+                  <label for="os_identifier" class="bmd-label-floating">Os Identifier</label>
+                  <input type="text" class="form-control" name="os_identifier" maxlength="50" id="os_identifier">
+                </div>
+                <div class="form-group">
+                  <label for="os_is_residential" class="bmd-label-floating">OS is Residential</label>
+                  <input type="text" class="form-control" name="os_is_residential" maxlength="50" id="os_is_residential">
+                </div>
+                <div class="form-group">
+                  <label for="os_lead_source" class="bmd-label-floating">OS Lead Source</label>
+                  <input type="text" class="form-control" name="os_lead_source" maxlength="50" id="os_lead_source">
+                </div>
+                <div class="form-group">
+                  <label for="os_notes" class="bmd-label-floating">OS Notes</label>
+                  <input type="text" class="form-control" name="os_notes" maxlength="50" id="os_notes">
+                </div>
+                <div class="form-group">
+                  <label for="os_lat" class="bmd-label-floating">OS Lat</label>
+                  <input type="text" class="form-control" name="os_lat" maxlength="50" id="os_lat">
+                </div>
+                <div class="form-group">
+                  <label for="os_lon" class="bmd-label-floating">OS Lon</label>
+                  <input type="text" class="form-control" name="os_lon" maxlength="50" id="os_lon">
+                </div>
+                <div class="form-group">
+                  <label for="os_address" class="bmd-label-floating">OS Address</label>
+                  <input type="text" class="form-control" name="os_address" maxlength="50" id="os_address">
+                </div>
+                <div class="form-group">
+                  <label for="os_locality" class="bmd-label-floating">OS Locality</label>
+                  <input type="text" class="form-control" name="os_locality" maxlength="50" id="os_locality">
+                </div>
+                <div class="form-group">
+                  <label for="os_state" class="bmd-label-floating">OS State</label>
+                  <input type="text" class="form-control" name="os_state" maxlength="50" id="os_state">
+                </div>
+                <div class="form-group">
+                  <label for="os_country_iso2" class="bmd-label-floating">OC Country ISO2</label>
+                  <input type="text" class="form-control" name="os_country_iso2" maxlength="50" id="os_country_iso2">
+                </div><div class="form-group">
+                  <label for="os_zip" class="bmd-label-floating">OS Zip</label>
+                  <input type="text" class="form-control" name="os_zip" maxlength="50" id="os_zip">
+                </div>
+                <div class="form-group">
+                  <label for="os_number_of_phases" class="bmd-label-floating">OS Number of Phases</label>
+                  <input type="text" class="form-control" name="os_number_of_phases" maxlength="50" id="os_number_of_phases">
+                </div>
+                <div class="form-group">
+                  <label for="os_roof_type_id" class="bmd-label-floating">OS Roof Type ID</label>
+                  <input type="text" class="form-control" name="os_roof_type_id" maxlength="50" id="os_roof_type_id">
+                </div>
+                <div class="form-group">
+                  <label for="os_assgined_role" class="bmd-label-floating">OS Assgined Role</label>
+                  <input type="text" class="form-control" name="os_assgined_role" maxlength="50" id="os_assgined_role">
+                </div>
+                <div class="form-group">
+                  <label for="os_access" class="bmd-label-floating">OS Access</label>
+                  <input type="text" class="form-control" name="os_access" maxlength="50" id="os_access">
+                </div>
+                <div class="form-group">
+                  <label for="os_number_of_storeys" class="bmd-label-floating">OS Number of Storeys</label>
+                  <input type="text" class="form-control" name="os_number_of_storeys" maxlength="50" id="os_number_of_storeys">
+                </div>
+                <div class="form-group">
+                  <label for="os_events" class="bmd-label-floating">OS Events</label>
+                  <input type="text" class="form-control" name="os_events" maxlength="50" id="os_events">
+                </div>
+                <div class="form-group">
+                  <label for="os_org_id" class="bmd-label-floating">OS Org ID</label>
+                  <input type="text" class="form-control" name="os_org_id" maxlength="50" id="os_org_id">
+                </div>
+                <div class="form-group">
+                  <label for="os_actions" class="bmd-label-floating">OS Actions</label>
+                  <input type="text" class="form-control" name="os_actions" maxlength="50" id="os_actions">
+                </div>
+                <div class="form-group">
+                  <label for="os_org" class="bmd-label-floating">OS Org</label>
+                  <input type="text" class="form-control" name="os_org" maxlength="50" id="os_org">
+                </div>
+                <div class="form-group">
+                  <label for="os_parcel_identifier" class="bmd-label-floating">OS Parcel Identifier</label>
+                  <input type="text" class="form-control" name="os_parcel_identifier" maxlength="50" id="os_parcel_identifier">
+                </div>
+                <div class="form-group">
+                  <label for="os_assigned_role_data" class="bmd-label-floating">OS Assigned Role Data</label>
+                  <input type="text" class="form-control" name="os_assigned_role_data" maxlength="50" id="os_assigned_role_data">
+                </div>
+                <div class="form-group">
+                  <label for="os_payment_option_sold" class="bmd-label-floating">OS Payment Option Sold</label>
+                  <input type="text" class="form-control" name="os_payment_option_sold" maxlength="50" id="os_payment_option_sold">
+                </div>
+                <div class="form-group">
+                  <label for="os_assigned_role_email" class="bmd-label-floating">OS Assigned Role Email</label>
+                  <input type="text" class="form-control" name="os_assigned_role_email" maxlength="50" id="os_assigned_role_email">
+                </div>
+                <div class="form-group">
+                  <label for="os_priority" class="bmd-label-floating">OS Priority</label>
+                  <input type="text" class="form-control" name="os_priority" maxlength="50" id="os_priority">
+                </div>
+                <div class="form-group">
+                  <label for="os_assigned_role_id" class="bmd-label-floating">OS Assigned Role ID</label>
+                  <input type="text" class="form-control" name="os_assigned_role_id" maxlength="50" id="os_assigned_role_id">
+                </div>
+                <div class="form-group">
+                  <label for="os_private_files_data" class="bmd-label-floating">OS Private Files Data</label>
+                  <input type="text" class="form-control" name="os_private_files_data" maxlength="50" id="os_private_files_data">
+                </div>
+                <div class="form-group">
+                  <label for="os_assigned_role_name" class="bmd-label-floating">OS Assigned Role Name</label>
+                  <input type="text" class="form-control" name="os_assigned_role_name" maxlength="50" id="os_assigned_role_name">
+                </div>
+                <div class="form-group">
+                  <label for="os_private_files" class="bmd-label-floating">OS Private Files</label>
+                  <input type="text" class="form-control" name="os_private_files" maxlength="50" id="os_private_files">
+                </div>
+                <div class="form-group">
+                  <label for="os_assigned_role_phone" class="bmd-label-floating">OS Assigned Role Phone</label>
+                  <input type="text" class="form-control" name="os_assigned_role_phone" maxlength="50" id="os_assigned_role_phone">
+                </div>
+                <div class="form-group">
+                  <label for="os_proposal_message" class="bmd-label-floating">OS Proposal Message</label>
+                  <input type="text" class="form-control" name="os_proposal_message" maxlength="50" id="os_proposal_message">
+                </div>
+                <div class="form-group">
+                  <label for="os_assigned_role" class="bmd-label-floating">OS Assigned Role</label>
+                  <input type="text" class="form-control" name="os_assigned_role" maxlength="50" id="os_assigned_role">
+                </div>
+                <div class="form-group">
+                  <label for="os_proposal_content" class="bmd-label-floating">OS Aroposal Content</label>
+                  <input type="text" class="form-control" name="os_proposal_content" maxlength="50" id="os_proposal_content">
+                </div>
+                <div class="form-group">
+                  <label for="os_assigned_role_accreditation" class="bmd-label-floating">OS Assigned Role Accreditation</label>
+                  <input type="text" class="form-control" name="os_assigned_role_accreditation" maxlength="50" id="os_assigned_role_accreditation">
+                </div><div class="form-group">
+                  <label for="os_contract_terms" class="bmd-label-floating">OS Contract Terms</label>
+                  <input type="text" class="form-control" name="os_contract_terms" maxlength="50" id="os_contract_terms">
+                </div>
+                <div class="form-group">
+                  <label for="os_assigned_installer_role_data" class="bmd-label-floating">OS Assigned Installer Role Data</label>
+                  <input type="text" class="form-control" name="os_assigned_installer_role_data" maxlength="50" id="os_assigned_installer_role_data">
+                </div>
+                <div class="form-group">
+                  <label for="os_proposal_template" class="bmd-label-floating">OS Proposal Template</label>
+                  <input type="text" class="form-control" name="os_proposal_template" maxlength="50" id="os_proposal_template">
+                </div>
+                <div class="form-group">
+                  <label for="os_assigned_installer_role" class="bmd-label-floating">OS Assigned Installer Role</label>
+                  <input type="text" class="form-control" name="os_assigned_installer_role" maxlength="50" id="os_assigned_installer_role">
+                </div>
+                <div class="form-group">
+                  <label for="os_roof_type" class="bmd-label-floating">OS Roof Type</label>
+                  <input type="text" class="form-control" name="os_roof_type" maxlength="50" id="os_roof_type">
+                </div>
+                <div class="form-group">
+                  <label for="os_assigned_site_inspector_role_data" class="bmd-label-floating">OS Assigned Site Inspector Role Data</label>
+                  <input type="text" class="form-control" name="os_assigned_site_inspector_role_data" maxlength="50" id="os_assigned_site_inspector_role_data">
+                </div>
+                <div class="form-group">
+                  <label for="os_serial_numbers_panels" class="bmd-label-floating">OS Serial Numbers Panels</label>
+                  <input type="text" class="form-control" name="os_serial_numbers_panels" maxlength="50" id="os_serial_numbers_panels">
+                </div>
+                <div class="form-group">
+                  <label for="os_assigned_site_inspector_role" class="bmd-label-floating">OS Assigned Site Inspector Role</label>
+                  <input type="text" class="form-control" name="os_assigned_site_inspector_role" maxlength="50" id="os_assigned_site_inspector_role">
+                </div>
+                <div class="form-group">
+                  <label for="os_serial_numbers_inverters" class="bmd-label-floating">OS Serial Numbers Inverters</label>
+                  <input type="text" class="form-control" name="os_serial_numbers_inverters" maxlength="50" id="os_serial_numbers_inverters">
+                </div>
+                <div class="form-group">
+                  <label for="os_available_customer_actions" class="bmd-label-floating"> OS Available Customer Actions</label>
+                  <input type="text" class="form-control" name="os_available_customer_actions" maxlength="50" id="os_available_customer_actions">
+                </div>
+                <div class="form-group">
+                  <label for="os_serial_numbers_batteries" class="bmd-label-floating">OS Serial Numbers Batteries</label>
+                  <input type="text" class="form-control" name="os_serial_numbers_batteries" maxlength="50" id="os_serial_numbers_batteries">
+                </div>
+                <div class="form-group">
+                  <label for="os_business_identifier" class="bmd-label-floating">OS Business Identifier</label>
+                  <input type="text" class="form-control" name="os_business_identifier" maxlength="50" id="os_business_identifier">
+                </div><div class="form-group">
+                  <label for="os_simulate_first_year_only" class="bmd-label-floating">OS Simulate First Year Only</label>
+                  <input type="text" class="form-control" name="os_simulate_first_year_only" maxlength="50" id="os_simulate_first_year_only">
+                </div>
+                <div class="form-group">
+                  <label for="os_business_name" class="bmd-label-floating">OS Business Name</label>
+                  <input type="text" class="form-control" name="os_business_name" maxlength="50" id="os_business_name">
+                </div>
+                <div class="form-group">
+                  <label for="os_site_notes" class="bmd-label-floating">OS Site Notes</label>
+                  <input type="text" class="form-control" name="os_site_notes" maxlength="50" id="os_site_notes">
+                </div>
+                <div class="form-group">
+                  <label for="os_configuration_override" class="bmd-label-floating">OS Configuration Override</label>
+                  <input type="text" class="form-control" name="os_configuration_override" maxlength="50" id="os_configuration_override">
+                </div>
+                <div class="form-group">
+                  <label for="os_sold_date" class="bmd-label-floating">OS Sold Date</label>
+                  <input type="text" class="form-control" name="os_sold_date" maxlength="50" id="os_sold_date">
+                </div>
+                <div class="form-group">
+                  <label for="os_configuration" class="bmd-label-floating">OS Configuration</label>
+                  <input type="text" class="form-control" name="os_configuration" maxlength="50" id="os_configuration">
+                </div>
+                <div class="form-group">
+                  <label for="os_stage" class="bmd-label-floating">OS Stage</label>
+                  <input type="text" class="form-control" name="os_stage" maxlength="50" id="os_stage">
+                </div>
+                <div class="form-group">
+                  <label for="os_costing_override" class="bmd-label-floating">OS Costing Override</label>
+                  <input type="text" class="form-control" name="os_costing_override" maxlength="50" id="os_costing_override">
+                </div>
+                <div class="form-group">
+                  <label for="os_stars" class="bmd-label-floating">OS Stars</label>
+                  <input type="text" class="form-control" name="os_stars" maxlength="50" id="os_stars">
+                </div>
+                <div class="form-group">
+                  <label for="os_costing" class="bmd-label-floating">OS Costing</label>
+                  <input type="text" class="form-control" name="os_costing" maxlength="50" id="os_costing">
+                </div>
+                <div class="form-group">
+                  <label for="os_contacts_data" class="bmd-label-floating">OS Contacts Data</label>
+                  <input type="text" class="form-control" name="os_contacts_data" maxlength="50" id="os_contacts_data">
+                </div>
+                <div class="form-group">
+                  <label for="os_systems" class="bmd-label-floating">OS Systems</label>
+                  <input type="text" class="form-control" name="os_systems" maxlength="50" id="os_systems">
+                </div><div class="form-group">
+                  <label for="os_contacts" class="bmd-label-floating">OS Contacts</label>
+                  <input type="text" class="form-control" name="os_contacts" maxlength="50" id="os_contacts">
+                </div>
+                <div class="form-group">
+                  <label for="os_system_sold" class="bmd-label-floating">OS System Sold</label>
+                  <input type="text" class="form-control" name="os_system_sold" maxlength="50" id="os_system_sold">
+                </div>
+                <div class="form-group">
+                  <label for="os_contract_date" class="bmd-label-floating">OS Contract Date</label>
+                  <input type="text" class="form-control" name="os_contract_date" maxlength="50" id="os_contract_date">
+                </div>
+                <div class="form-group">
+                  <label for="os_system_installed" class="bmd-label-floating">OS System Installed</label>
+                  <input type="text" class="form-control" name="os_system_installed" maxlength="50" id="os_system_installed">
+                </div>
+                <div class="form-group">
+                  <label for="os_contract" class="bmd-label-floating">OS Contract</label>
+                  <input type="text" class="form-control" name="os_contract" maxlength="50" id="os_contract">
+                </div>
+                <div class="form-group">
+                  <label for="os_tags_data" class="bmd-label-floating">OS Tags Data</label>
+                  <input type="text" class="form-control" name="os_tags_data" maxlength="50" id="os_tags_data">
+                </div>
+                <div class="form-group">
+                  <label for="os_tags" class="bmd-label-floating">OS Tags</label>
+                  <input type="text" class="form-control" name="os_tags" maxlength="50" id="os_tags">
+                </div>
+                <div class="form-group">
+                  <label for="os_country_name" class="bmd-label-floating">OS Country Name</label>
+                  <input type="text" class="form-control" name="os_country_name" maxlength="50" id="os_country_name">
+                </div>
+                <div class="form-group">
+                  <label for="os_testimonials_data" class="bmd-label-floating">OS Testimonials Data</label>
+                  <input type="text" class="form-control" name="os_testimonials_data" maxlength="50" id="os_testimonials_data">
+                </div>
+                <div class="form-group">
+                  <label for="os_country" class="bmd-label-floating">OS Country</label>
+                  <input type="text" class="form-control" name="os_country" maxlength="50" id="os_country">
+                </div>
+                <div class="form-group">
+                  <label for="os_testimonials" class="bmd-label-floating">OS Testimonials</label>
+                  <input type="text" class="form-control" name="os_testimonials" maxlength="50" id="os_testimonials">
+                </div>
+                <div class="form-group">
+                  <label for="os_county" class="bmd-label-floating">OS County</label>
+                  <input type="text" class="form-control" name="os_county" maxlength="50" id="os_county">
+                </div><div class="form-group">
+                  <label for="os_timezone_offset" class="bmd-label-floating">OS Timezone Offset</label>
+                  <input type="text" class="form-control" name="os_timezone_offset" maxlength="50" id="os_timezone_offset">
+                </div>
+                <div class="form-group">
+                  <label for="os_created_date" class="bmd-label-floating">OS Created Date</label>
+                  <input type="text" class="form-control" name="os_created_date" maxlength="50" id="os_created_date">
+                </div>
+                <div class="form-group">
+                  <label for="os_title" class="bmd-label-floating">OS Title</label>
+                  <input type="text" class="form-control" name="os_title" maxlength="50" id="os_title">
+                </div>
+                <div class="form-group">
+                  <label for="os_events_data" class="bmd-label-floating">OS Events Data</label>
+                  <input type="text" class="form-control" name="os_events_data" maxlength="50" id="os_events_data">
+                </div>
+                <div class="form-group">
+                  <label for="os_transactions_data" class="bmd-label-floating">OS Transactions Data</label>
+                  <input type="text" class="form-control" name="os_transactions_data" maxlength="50" id="os_transactions_data">
+                </div>
+                <div class="form-group">
+                  <label for="os_greenlancer_project_id" class="bmd-label-floating">OS Greenlancer Project ID</label>
+                  <input type="text" class="form-control" name="os_greenlancer_project_id" maxlength="50" id="os_greenlancer_project_id">
+                </div>
+                <div class="form-group">
+                  <label for="os_url" class="bmd-label-floating">OS Url</label>
+                  <input type="text" class="form-control" name="os_url" maxlength="50" id="os_url">
+                </div>
+                <div class="form-group">
+                  <label for="os_id" class="bmd-label-floating">OS ID</label>
+                  <input type="text" class="form-control" name="os_id" maxlength="50" id="os_id">
+                </div>
+                <div class="form-group">
+                  <label for="os_usage_annual_or_guess" class="bmd-label-floating">OS Usage Annual or Guess</label>
+                  <input type="text" class="form-control" name="os_usage_annual_or_guess" maxlength="50" id="os_usage_annual_or_guess">
+                </div>
+                <div class="form-group">
+                  <label for="os_usage" class="bmd-label-floating">OS Usage</label>
+                  <input type="text" class="form-control" name="os_usage" maxlength="50" id="os_usage">
+                </div>
+                <div class="form-group">
+                  <label for="os_utility_tariff_current_custom" class="bmd-label-floating">OS Utility Tariff Current Custom</label>
+                  <input type="text" class="form-control" name="os_utility_tariff_current_custom" maxlength="50" id="os_utility_tariff_current_custom">
+                </div>
+                <div class="form-group">
+                  <label for="os_is_pricing_locked" class="bmd-label-floating">OS is Pricing Locked</label>
+                  <input type="text" class="form-control" name="os_is_pricing_locked" maxlength="50" id="os_is_pricing_locked">
+                </div><div class="form-group">
+                  <label for="os_utility_tariff_current_data" class="bmd-label-floating">OS Utility Tariff Current Data</label>
+                  <input type="text" class="form-control" name="os_utility_tariff_current_data" maxlength="50" id="os_utility_tariff_current_data">
+                </div>
+                <div class="form-group">
+                  <label for="os_installation_date" class="bmd-label-floating">OS Installation Date</label>
+                  <input type="text" class="form-control" name="os_installation_date" maxlength="50" id="os_installation_date">
+                </div>
+                <div class="form-group">
+                  <label for="os_utility_tariff_current" class="bmd-label-floating">OS Utility Tariff Current</label>
+                  <input type="text" class="form-control" name="os_utility_tariff_current" maxlength="50" id="os_utility_tariff_current">
+                </div>
+                <div class="form-group">
+                  <label for="os_language" class="bmd-label-floating">OS Language</label>
+                  <input type="text" class="form-control" name="os_language" maxlength="50" id="os_language">
+                </div><div class="form-group">
+                  <label for="os_utility_tariff_or_guess" class="bmd-label-floating">OS Utility Tariff or Guess</label>
+                  <input type="text" class="form-control" name="os_utility_tariff_or_guess" maxlength="50" id="os_utility_tariff_or_guess">
+                </div>
+                <div class="form-group">
+                  <label for="os_language_override" class="bmd-label-floating">OS Language Override</label>
+                  <input type="text" class="form-control" name="os_language_override" maxlength="50" id="os_language_override">
+                </div>
+                <div class="form-group">
+                  <label for="os_utility_tariff_proposed_custom" class="bmd-label-floating">OS Utility Tariff Proposed Custom</label>
+                  <input type="text" class="form-control" name="os_utility_tariff_proposed_custom" maxlength="50" id="os_utility_tariff_proposed_custom">
+                </div>
+                <div class="form-group">
+                  <label for="os_last_calculation_error" class="bmd-label-floating">OS Last Calculation Error</label>
+                  <input type="text" class="form-control" name="os_last_calculation_error" maxlength="50" id="os_last_calculation_error">
+                </div><div class="form-group">
+                  <label for="os_utility_tariff_proposed_data" class="bmd-label-floating">OS Utility Tariff Proposed Data</label>
+                  <input type="text" class="form-control" name="os_utility_tariff_proposed_data" maxlength="50" id="os_utility_tariff_proposed_data">
+                </div>
+                <div class="form-group">
+                  <label for="os_utility_tariff_proposed" class="bmd-label-floating">OS Utility Tariff Proposed</label>
+                  <input type="text" class="form-control" name="os_utility_tariff_proposed" maxlength="50" id="os_utility_tariff_proposed">
+                </div>
+                <div class="form-group">
+                  <label for="os_utility_tariff_proposed_or_guess" class="bmd-label-floating">OS Utility Tariff Propose or Guess</label>
+                  <input type="text" class="form-control" name="os_utility_tariff_proposed_or_guess" maxlength="50" id="os_utility_tariff_proposed_or_guess">
+                </div>
+                <div class="form-group">
+                  <label for="os_valid_until_date" class="bmd-label-floating">OS Valid Until Date</label>
+                  <input type="text" class="form-control" name="os_valid_until_date" maxlength="50" id="os_valid_until_date">
+                </div><div class="form-group">
+                  <label for="os_wind_region" class="bmd-label-floating">OS Wind Region</label>
+                  <input type="text" class="form-control" name="os_wind_region" maxlength="50" id="os_wind_region">
+                </div>
+                <div class="form-group">
+                  <label for="os_meter_identifier" class="bmd-label-floating">OS Meter Identifier</label>
+                  <input type="text" class="form-control" name="os_meter_identifier" maxlength="50" id="os_meter_identifier">
+                </div><div class="form-group">
+                  <label for="os_has_cellular_coverage" class="bmd-label-floating">OS Has Cellular Coverage</label>
+                  <input type="text" class="form-control" name="os_has_cellular_coverage" maxlength="50" id="os_has_cellular_coverage">
+                </div>
+                <div class="form-group">
+                  <label for="os_modified_date" class="bmd-label-floating">OS Modified Date</label>
+                  <input type="text" class="form-control" name="os_modified_date" maxlength="50" id="os_modified_date">
+                </div><div class="form-group">
+                  <label for="os_power_factor" class="bmd-label-floating">OS Power Factor</label>
+                  <input type="text" class="form-control" name="os_power_factor" maxlength="50" id="os_power_factor">
+                </div>
+                <div class="form-group">
+                  <label for="os_natron" class="bmd-label-floating">OS Natron</label>
+                  <input type="text" class="form-control" name="os_natron" maxlength="50" id="os_natron">
+                </div><div class="form-group">
+                  <label for="os_years_to_simulate" class="bmd-label-floating">OS Years To Simulate</label>
+                  <input type="text" class="form-control" name="os_years_to_simulate" maxlength="50" id="os_years_to_simulate">
+                </div>
+                <div class="form-group">
+                  <label for="os_customer_proposal_data" class="bmd-label-floating">OS Customer Proposal Data</label>
+                  <input type="text" class="form-control" name="os_customer_proposal_data" maxlength="50" id="os_customer_proposal_data">
+                </div><div class="form-group">
+                  <label for="os_number_of_wires" class="bmd-label-floating">OS Number of Wires</label>
+                  <input type="text" class="form-control" name="os_number_of_wires" maxlength="50" required="" id="os_number_of_wires">
+                </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="card ">
+            <div class="card-body ">
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-rose">Submit</button>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</form>
+
+{% endblock content %}
+
+{% block javascripts %}
+
+<script>
+  $(document).ready(function() {
+    // initialise Datetimepicker and Sliders
+    md.initFormExtendedDatetimepickers();
+    if ($('.slider').length != 0) {
+      md.initSliders();
+    }
+  });
+</script>
+
+{% endblock javascripts %}
